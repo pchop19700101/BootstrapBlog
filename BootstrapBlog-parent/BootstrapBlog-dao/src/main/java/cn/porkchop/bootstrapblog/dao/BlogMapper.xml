@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.porkchop.bootstrapblog.dao.BlogMapper">
+    <resultMap id="BlogResultMap" type="cn.porkchop.bootstrapblog.pojo.Blog">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="summary" property="summary" jdbcType="VARCHAR"/>
+        <result column="release_date" property="releaseDate" jdbcType="TIMESTAMP"/>
+        <result column="click_count" property="clickCount" jdbcType="BIGINT"/>
+        <result column="type_id" property="typeId" jdbcType="INTEGER"/>
+        <result column="keyword" property="keyword" jdbcType="VARCHAR"/>
+        <result column="blog_count" property="blogCount"/>
+        <result column="release_month" property="releaseMonth"/>
+        <result column="blog_type_name" property="blogTypeName"/>
+        <association property="commentCount" select="cn.porkchop.bootstrapblog.dao.CommentMapper.findCountByBlogId" column="id"/>
+    </resultMap>
+    <select id="findReleaseMonthWithCount" resultMap="BlogResultMap">
+        SELECT
+            COUNT(*)                           blog_count,
+            DATE_FORMAT(release_date, "%Y.%m") release_month
+        FROM
+            t_blog
+        GROUP BY
+            DATE_FORMAT(release_date, "%Y.%m")
+        ORDER BY
+            DATE_FORMAT(release_date, "%Y.%m") DESC;
+    </select>
+
+    <select id="findByCondition" resultMap="BlogResultMap" parameterType="cn.porkchop.bootstrapblog.pojo.Blog">
+        SELECT *
+        FROM t_blog
+        <where>
+            <if test="releaseMonth!=null and releaseMonth!=''">
+                and DATE_FORMAT(release_date, "%Y.%m") = #{releaseMonth}
+            </if>
+            <if test="typeId!=null and typeId!=''">
+                AND type_id = #{typeId}
+            </if>
+        </where>
+        ORDER BY
+        release_date DESC
+    </select>
+    <select id="findWithBlogTypeNameById" resultMap="BlogResultMap" parameterType="Long">
+        SELECT
+            b.*,
+            t.type_name blog_type_name
+        FROM
+            t_blog b
+            JOIN t_blog_type t ON b.type_id = t.id
+        WHERE
+            b.id = #{blogId}
+    </select>
+
+    <select id="findNext" resultMap="BlogResultMap" parameterType="cn.porkchop.bootstrapblog.pojo.Blog">
+        SELECT
+            title,
+            id
+        FROM
+            t_blog
+        WHERE
+            release_date > #{releaseDate}
+        ORDER BY
+            release_date
+        LIMIT 0, 1;
+    </select>
+    <select id="findPre" resultMap="BlogResultMap" parameterType="cn.porkchop.bootstrapblog.pojo.Blog">
+        SELECT
+            title,
+            id
+        FROM
+            t_blog
+        WHERE
+            release_date &lt; #{releaseDate}
+        ORDER BY
+            release_date desc
+        LIMIT 0, 1;
+    </select>
+    <select id="findForDatagrid" parameterType="String" resultMap="BlogResultMap">
+        SELECT
+            t.type_name blog_type_name,
+            b.id,
+            b.release_date,
+            b.title
+        FROM
+            t_blog b
+            JOIN t_blog_type t ON b.type_id = t.id
+        WHERE
+            b.title LIKE '%${_parameter}%'
+        order by b.release_date desc
+    </select>
+
+
+</mapper>

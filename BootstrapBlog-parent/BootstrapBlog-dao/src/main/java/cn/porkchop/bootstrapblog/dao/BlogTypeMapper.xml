@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.porkchop.bootstrapblog.dao.BlogTypeMapper">
+    <resultMap id="BlogTypeResultMap" type="cn.porkchop.bootstrapblog.pojo.BlogType">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="type_name" property="typeName" jdbcType="VARCHAR"/>
+        <result column="order_num" property="orderNum" jdbcType="INTEGER"/>
+        <result column="blog_count" property="blogCount"/>
+    </resultMap>
+
+    <select id="findAllWithBlogCountByOrder" resultMap="BlogTypeResultMap">
+        SELECT
+            count(*) blog_count,
+            type.type_name,
+            type.id,
+            type.order_num
+        FROM
+            t_blog blog
+            RIGHT JOIN t_blog_type type ON blog.type_id = type.id
+        GROUP BY
+            type.type_name
+        ORDER BY
+            type.order_num
+    </select>
+</mapper>

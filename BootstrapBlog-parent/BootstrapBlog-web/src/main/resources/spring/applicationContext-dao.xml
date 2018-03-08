@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:conf/*.properties" />
+
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+
+
+
+        <!-- 连接Idle一个小时后超时 -->
+        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
+        <property name="minEvictableIdleTimeMillis" value="3600000" />
+        <!-- DataSource Druid配置 -->
+        <property name="validationQuery" value="SELECT SYSDATE() FROM DUAL" />
+        <property name="testWhileIdle" value="true" />
+        <property name="poolPreparedStatements" value="true" /><!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="maxPoolPreparedStatementPerConnectionSize"
+                  value="20" />
+        <property name="filters" value="stat,config" /><!-- 开启druid监控支持(stat)，SQL防火墙(wall)以及SQL合并(mergeStat) -->
+        <property name="connectionProperties"
+                  value="druid.stat.slowSqlMillis=2000;config.decrypt=false" /><!-- 慢SQL标准 -->
+        <property name="removeAbandoned" value="true" /> <!-- 打开removeAbandoned功能 -->
+        <property name="removeAbandonedTimeout" value="1800" /> <!-- 1800秒，也就是30分钟 -->
+        <property name="logAbandoned" value="true" /> <!-- 关闭abanded连接时输出错误日志 -->
+    </bean>
+
+    <!-- 配置mybatis的sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 自动扫描mappers.xml文件 -->
+        <property name="mapperLocations" value="classpath:cn/porkchop/bootstrapblog/dao/*.xml"/>
+        <!-- mybatis配置文件 -->
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"/>
+    </bean>
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.porkchop.bootstrapblog.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+
+</beans>

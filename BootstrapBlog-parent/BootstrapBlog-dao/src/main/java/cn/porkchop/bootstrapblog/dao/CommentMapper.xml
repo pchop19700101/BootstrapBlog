@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.porkchop.bootstrapblog.dao.CommentMapper">
+    <resultMap id="BaseResultMap" type="cn.porkchop.bootstrapblog.pojo.Comment">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_ip" property="userIp" jdbcType="VARCHAR"/>
+        <result column="blog_id" property="blogId" jdbcType="BIGINT"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="comment_date" property="commentDate" jdbcType="TIMESTAMP"/>
+        <result column="state" property="state" jdbcType="INTEGER"/>
+        <result column="blog_id" property="blogId"/>
+        <result column="blog_title" property="blogTitle"/>
+    </resultMap>
+    <select id="findCountByBlogId" parameterType="Long" resultType="Long">
+        SELECT COUNT(*)
+        FROM t_comment
+        WHERE blog_id = #{blogId}
+    </select>
+    <select id="findAllWithBlogNameAndBlogId" resultMap="BaseResultMap">
+        SELECT
+            c.*, b.id blog_id,
+                 b.title blog_title
+        FROM
+            t_comment c
+            JOIN t_blog b ON c.blog_id = b.id
+    </select>
+</mapper>
