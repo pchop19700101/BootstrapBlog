@@ -5,7 +5,7 @@
 <head>
     <title>猪扒的博客~</title>
     <meta name="keywords" content="博客,java,spring,数据库"/>
-    <meta name="description" content="猪扒的博客,分享我的生活与学习~"  />
+    <meta name="description" content="猪扒的博客,分享我的生活与学习~"/>
 </head>
 <body>
 <jsp:include page="common/header.jsp"/>
@@ -53,12 +53,12 @@
     .content_list_container .content_list_title {
         font-size: 16px;
         text-align: center;
+        margin: 8px 15px;
     }
 
     @media (min-width: 1200px) {
         .content_list_container .content_list_title {
             font-size: 16px;
-            margin: 8px 15px;
             text-align: left;
         }
     }

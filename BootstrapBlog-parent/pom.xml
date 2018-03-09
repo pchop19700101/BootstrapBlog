@@ -223,7 +223,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.16</version>
+            <version>1.0.9</version>
         </dependency>
 
         <!-- 天津唉Jsoup支持 -->
@@ -283,8 +283,11 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8080</port>
+                    <port>443</port>
                     <path>/</path>
+                    <url>http://blog.porkchop.cn:80/manager/text</url>
+                    <username>tomcat</username>
+                    <password>tomcat</password>
                 </configuration>
             </plugin>
         </plugins>

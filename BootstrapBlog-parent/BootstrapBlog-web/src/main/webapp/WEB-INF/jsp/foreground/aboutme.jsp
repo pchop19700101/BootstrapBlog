@@ -20,13 +20,13 @@
     }
     .about_container .aboutme_title {
         font-size: 16px;
+        margin: 8px 15px;
         text-align: center;
     }
 
     @media (min-width: 1200px) {
         .about_container .aboutme_title {
             font-size: 16px;
-            margin: 8px 15px;
             text-align: left;
         }
     }
