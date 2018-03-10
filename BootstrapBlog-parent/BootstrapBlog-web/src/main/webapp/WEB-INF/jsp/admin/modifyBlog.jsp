@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -37,6 +38,7 @@
                 "content":UE.getEditor('editor').getContent(),
                 "typeId":$("#type").combobox("getValue"),
                 "keyword":$("#keyword").val(),
+                "releaseDate":$("#releaseDate").val(),
                 "summary":UE.getEditor('editor').getContentTxt().substr(0,200)
             },function(data){
                 alert("博客修改成功!");
@@ -47,6 +49,7 @@
 </head>
 <body>
 <table cellspacing="20px">
+    <input type="hidden" id="releaseDate" name="releaseDate" value="${tBlog.releaseDate}"/>
     <tr>
         <td width="80px">博客标题:</td>
         <td><input id="title" style="width:400px" value="${tBlog.title}" data-options="required:true" class="easyui-validatebox"/></td>

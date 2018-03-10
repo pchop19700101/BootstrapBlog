@@ -5,6 +5,7 @@
 <head>
     <title>关于我-猪扒的博客~</title>
     <meta name="keywords" content="个人,信息,关于"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/icon.png" type="image/x-icon">
     <meta name="description" content="关于我个人的一些信息"  />
 </head>
 <body>

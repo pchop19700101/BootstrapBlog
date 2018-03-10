@@ -17,7 +17,7 @@
 
     .form-group .button {
         background-image: none;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.6);
     }
 
     ${backgroundImage.imageCode}
@@ -26,7 +26,16 @@
         font-weight: bold;
     }
 </style>
-
+<script>
+    $(function () {
+        $("#submitButton").click(function () {
+            if ($("#queryString").val() == '') {
+                return;
+            }
+            $("#searchForm").submit();
+        });
+    })
+</script>
 
 <!--导航条-->
 <nav class="navbar navbar-default transparent_background">
@@ -48,17 +57,18 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/aboutme.html">关于我</a></li>
             </ul>
-            <form class="navbar-form navbar-right" action="#">
+            <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/blog/search.html"
+                  method="get" id="searchForm">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" name="" class="form-control transparent_background_text"
+                        <input type="text" name="queryString" class="form-control transparent_background_text"
+                               value="${queryString}" id="queryString"
                                placeholder="请输入查询的关键字">
                         <span class="input-group-btn">
-                            <input value="搜索" class="btn btn-default button" type="submit">
+                            <input value="搜索" class="btn btn-default button" type="button" id="submitButton">
                         </span>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>登录(Login)</title>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/icon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">

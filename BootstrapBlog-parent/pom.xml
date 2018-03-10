@@ -253,6 +253,13 @@
             <artifactId>com.baidu.ueditor</artifactId>
             <version>1.1.2-offical</version>
         </dependency>
+        <!-- solr客户端 -->
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>4.10.3</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -286,6 +293,7 @@
                     <port>443</port>
                     <path>/</path>
                     <url>http://blog.porkchop.cn:80/manager/text</url>
+                    <update>true</update>
                     <username>tomcat</username>
                     <password>tomcat</password>
                 </configuration>

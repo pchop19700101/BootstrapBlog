@@ -6,6 +6,7 @@
     <title>猪扒的博客~</title>
     <meta name="keywords" content="博客,java,spring,数据库"/>
     <meta name="description" content="猪扒的博客,分享我的生活与学习~"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/icon.png" type="image/x-icon">
 </head>
 <body>
 <jsp:include page="common/header.jsp"/>
@@ -76,7 +77,9 @@
 
 
                 <c:forEach items="${pageInfo.list}" var="blog" varStatus="i">
-
+                    <c:if test="${i.index>0}">
+                        <hr class="content_seperator"/>
+                    </c:if>
                     <div class="content_container">
                         <div class="content_title">
                             <a href="${pageContext.request.contextPath}/blog/${blog.id}.html">${blog.title}</a>
@@ -103,9 +106,6 @@
                             </div>
                         </div>
                     </div>
-                    <c:if test="${i.index>0}">
-                        <hr class="content_seperator"/>
-                    </c:if>
                 </c:forEach>
 
 
@@ -137,15 +137,15 @@
                 <nav aria-label="Page navigation!=0">
                     <ul class="pagination  ">
 
-                        <c:if test="${pageInfo.prePage!=0}">
-                            <li>
-                                <a href="${pageContext.request.contextPath}/index.html?pageNum=${pageInfo.prePage}${params}"
-                                   aria-label="Previous" class="transparent_background">
-                                    <span aria-hidden="true">上一页</span>
-                                </a>
-                            </li>
 
-                        </c:if>
+                        <li <c:if test="${pageInfo.prePage==0}"> class="disabled" </c:if> >
+                            <a <c:if
+                                    test="${pageInfo.prePage!=0}"> href="${pageContext.request.contextPath}/index.html?pageNum=${pageInfo.prePage}${params}" </c:if>
+                                    aria-label="Previous" class="transparent_background">
+                                <span aria-hidden="true">上一页</span>
+                            </a>
+                        </li>
+
 
                         <c:forEach items="${pageInfo.navigatepageNums}" var="pageNum">
                             <li>
@@ -156,15 +156,16 @@
 
 
                         <%--<li><a href="#" class="transparent_background">5</a></li>--%>
-                        <c:if test="${pageInfo.nextPage!=0}">
 
-                            <li>
-                                <a href="${pageContext.request.contextPath}/index.html?pageNum=${pageInfo.nextPage}${params}"
-                                   aria-label="Next" class="transparent_background">
-                                    <span aria-hidden="true">下一页</span>
-                                </a>
-                            </li>
-                        </c:if>
+
+                        <li  <c:if test="${pageInfo.nextPage==0}"> class="disabled" </c:if>>
+                            <a  <c:if
+                                    test="${pageInfo.nextPage!=0}"> href="${pageContext.request.contextPath}/index.html?pageNum=${pageInfo.nextPage}${params}"</c:if>
+                                    aria-label="Next" class="transparent_background">
+                                <span aria-hidden="true">下一页</span>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </nav>

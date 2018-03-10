@@ -6,6 +6,7 @@
     <title>${blog.title}-猪扒的博客~</title>
     <meta name="keywords" content="<c:forEach items="${blog.keywordList}" var="keyword" varStatus="i"><c:if test="${i.index!=0}">,</c:if> ${keyword}</c:forEach>"/>
     <meta name="description" content="猪扒的博客,分享我的生活与学习~"  />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/icon.png" type="image/x-icon">
 </head>
 
 

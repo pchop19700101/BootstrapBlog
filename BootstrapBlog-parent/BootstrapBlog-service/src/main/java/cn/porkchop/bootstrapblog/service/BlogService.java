@@ -2,9 +2,13 @@ package cn.porkchop.bootstrapblog.service;
 
 import cn.porkchop.bootstrapblog.pojo.Blog;
 import cn.porkchop.bootstrapblog.pojo.EasyUIDataGridResult;
+import cn.porkchop.bootstrapblog.pojo.PageBean;
 import cn.porkchop.bootstrapblog.pojo.TBlog;
 import com.github.pagehelper.PageInfo;
+import org.apache.solr.client.solrj.SolrServerException;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 public interface BlogService {
@@ -54,7 +58,7 @@ public interface BlogService {
      * @date 2018/3/5 20:13
      * @author porkchop
      */
-    void add(TBlog tBlog);
+    void add(TBlog tBlog) throws IOException, SolrServerException;
 
     /**
      * 查询所有,可以指定标题的模糊查询
@@ -71,21 +75,39 @@ public interface BlogService {
      * @date 2018/3/6 21:08
      * @author porkchop
      */
-    void delete(String[] split);
+    void delete(String[] split) throws IOException, SolrServerException;
 
     /**
      * 更新博文
      *
+     * @param blog
      * @date 2018/3/7 19:38
      * @author porkchop
-     * @param blog
      */
-    void update(TBlog blog);
+    void update(TBlog blog) throws IOException, SolrServerException;
 
     /**
      * 后台根据id查询
+     *
      * @date 2018/3/7 20:25
      * @author porkchop
      */
     TBlog findByIdAdmin(Long id);
+
+
+    /**
+     * 删除所有索引,并重新导入
+     *
+     * @date 2018/3/10 12:24
+     * @author porkchop
+     */
+    void deleteAllAndReimportIndex() throws IOException, SolrServerException;
+
+    /**
+     * 博客全文检索
+     *
+     * @date 2018/3/10 15:22
+     * @author porkchop
+     */
+    PageBean<TBlog> search(int pageSize, int currentPage,String queryString,int paginationCoun) throws ParseException, SolrServerException;
 }

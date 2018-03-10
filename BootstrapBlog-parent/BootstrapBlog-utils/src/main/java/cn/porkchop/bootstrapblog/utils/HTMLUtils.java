@@ -1,0 +1,42 @@
+package cn.porkchop.bootstrapblog.utils;
+
+public class HTMLUtils {
+    /**
+     * 去除html标签
+     *
+     * @date 2018/3/9 21:00
+     * @author porkchop
+     */
+    public static String stripHtml(String content) {
+        // <p>段落替换为换行
+        content = content.replaceAll("<p .*?>", "\r\n");
+        // <br><br/>替换为换行
+        content = content.replaceAll("<br\\s*/?>", "\r\n");
+        // 去掉其它的<>之间的东西
+        content = content.replaceAll("\\<.*?>", "");
+        // 去掉空格
+        //content = content.replaceAll(" ", "");
+        return content;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(stripHtml("<p><span style=\"background-color: rgb(249, 249, 245); color: rgb(44, 62, 80); font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Helvetica Neue&quot;, &quot;Microsoft Yahei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif;\">1、安装ShadowSocks</span><br/></p><pre data-anchor-id=\"l1wa\" style=\"padding: 10px 15px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(51, 51, 51); border-radius: 4px; margin-top: 0px; margin-bottom: 20px; line-height: 20px; word-break: break-all; word-wrap: break-word; white-space: pre-wrap; background-image: none; background-position: 0px 0px; background-repeat: repeat; background-attachment: scroll; background-color: rgba(102, 128, 153, 0.05); border: 0px solid rgba(0, 0, 0, 0.15);\">[root@localhost&nbsp;~]#&nbsp;yum&nbsp;install&nbsp;python-setuptools&nbsp;&amp;&amp;&nbsp;easy_install&nbsp;pip\n" +
+                "[root@localhost&nbsp;~]#&nbsp;pip&nbsp;install&nbsp;shadowsocks</pre><p data-anchor-id=\"vl0c\" style=\"margin-top: 0px; margin-bottom: 20px; color: rgb(44, 62, 80); font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Helvetica Neue&quot;, &quot;Microsoft Yahei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; white-space: normal; background-color: rgb(249, 249, 245);\">2、创建配置文件<code style=\"padding: 2px 4px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; border-radius: 4px; white-space: nowrap; background-color: rgb(214, 219, 223); border: 0px;\">/etc/shadowsocks.json</code></p><pre data-anchor-id=\"v0y5\" style=\"padding: 10px 15px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(51, 51, 51); border-radius: 4px; margin-top: 0px; margin-bottom: 20px; line-height: 20px; word-break: break-all; word-wrap: break-word; white-space: pre-wrap; background-image: none; background-position: 0px 0px; background-repeat: repeat; background-attachment: scroll; background-color: rgba(102, 128, 153, 0.05); border: 0px solid rgba(0, 0, 0, 0.15);\">[root@localhost&nbsp;/]#&nbsp;touch&nbsp;/etc/shadowsocks.json\n" +
+                "[root@localhost&nbsp;/]#&nbsp;vi&nbsp;/etc/shadowsocks.json\n" +
+                "{\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;server&quot;:&quot;0.0.0.0&quot;,\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;server_port&quot;:443,\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;local_address&quot;:&nbsp;&quot;127.0.0.1&quot;,\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;local_port&quot;:1080,\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;password&quot;:&quot;MyPass&quot;,\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeout&quot;:600,\n" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&quot;method&quot;:&quot;rc4-md5&quot;\n" +
+                "}</pre><p data-anchor-id=\"qv7y\" style=\"margin-top: 0px; margin-bottom: 20px; color: rgb(44, 62, 80); font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Helvetica Neue&quot;, &quot;Microsoft Yahei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; white-space: normal; background-color: rgb(249, 249, 245);\">备注：加密方式官方默认使用aes-256-cfb，推荐使用rc4-md5，因为 RC4比AES速度快好几倍。&nbsp;<br/>各字段说明：</p><pre data-anchor-id=\"j5oq\" style=\"padding: 10px 15px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(51, 51, 51); border-radius: 4px; margin-top: 0px; margin-bottom: 20px; line-height: 20px; word-break: break-all; word-wrap: break-word; white-space: pre-wrap; background-image: none; background-position: 0px 0px; background-repeat: repeat; background-attachment: scroll; background-color: rgba(102, 128, 153, 0.05); border: 0px solid rgba(0, 0, 0, 0.15);\">server:服务器IP\n" +
+                "server_port:服务器端口\n" +
+                "local_port:本地端端口\n" +
+                "password:用来加密的密码\n" +
+                "timeout:超时时间（秒）\n" +
+                "method:加密方法，可选择&nbsp;“bf-cfb”,&nbsp;“aes-256-cfb”,&nbsp;“des-cfb”,&nbsp;“rc4″等</pre><p data-anchor-id=\"0dm0\" style=\"margin-top: 0px; margin-bottom: 20px; color: rgb(44, 62, 80); font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Helvetica Neue&quot;, &quot;Microsoft Yahei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; white-space: normal; background-color: rgb(249, 249, 245);\">3、使用配置文件在后台运行shadowsocks服务</p><pre data-anchor-id=\"v6x4\" style=\"padding: 10px 15px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(51, 51, 51); border-radius: 4px; margin-top: 0px; margin-bottom: 20px; line-height: 20px; word-break: break-all; word-wrap: break-word; white-space: pre-wrap; background-image: none; background-position: 0px 0px; background-repeat: repeat; background-attachment: scroll; background-color: rgba(102, 128, 153, 0.05); border: 0px solid rgba(0, 0, 0, 0.15);\">[root@localhost&nbsp;/]#&nbsp;ssserver&nbsp;-c&nbsp;/etc/shadowsocks.json&nbsp;-d&nbsp;start</pre><p data-anchor-id=\"l3bk\" style=\"margin-top: 0px; margin-bottom: 20px; color: rgb(44, 62, 80); font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Helvetica Neue&quot;, &quot;Microsoft Yahei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; white-space: normal; background-color: rgb(249, 249, 245);\">4、停止服务</p><pre data-anchor-id=\"eyiv\" style=\"padding: 10px 15px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; color: rgb(51, 51, 51); border-radius: 4px; margin-top: 0px; margin-bottom: 20px; line-height: 20px; word-break: break-all; word-wrap: break-word; white-space: pre-wrap; background-image: none; background-position: 0px 0px; background-repeat: repeat; background-attachment: scroll; background-color: rgba(102, 128, 153, 0.05); border: 0px solid rgba(0, 0, 0, 0.15);\">[root@localhost&nbsp;/]#&nbsp;ssserver&nbsp;-c&nbsp;/etc/shadowsocks.json&nbsp;-d&nbsp;stop</pre><p>5.&nbsp; 关闭防火墙</p><pre class=\"brush:html;toolbar:false\">systemctl&nbsp;stop&nbsp;firewalld.service&nbsp;#停止firewall\n" +
+                "systemctl&nbsp;disable&nbsp;firewalld.service&nbsp;#禁止firewall开机启动</pre><p>6.1.&nbsp;极路由安装商店的ss</p><p>进入智能插件中心，随便点一个插件，然后将浏览器地址栏中最后面的sid=后面的数字改为163116535，然后回车，就可以装官方的SS插件了</p><p>6.2.&nbsp;极路由安装第三方ss<br/></p><pre class=\"brush:cpp;toolbar:false\">cd&nbsp;/tmp&nbsp;&amp;&amp;&nbsp;curl&nbsp;-k&nbsp;-o&nbsp;hiwifios1.0.sh&nbsp;https://sspanel.tabboa.com/hiwifios1.0.sh&nbsp;&amp;&amp;&nbsp;sh&nbsp;hiwifios1.0.sh</pre><p>7.&nbsp;一键脚本安装bbr</p><p>本脚本适用环境</p><p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+<br/></p><p>虚拟技术：OpenVZ 以外的，比如 KVM、Xen、VMware 等</p><p>本脚本已在&nbsp;Vultr&nbsp;上的 VPS 全部测试通过。</p><p><br/></p><p>使用root用户登录，运行以下命令：</p><pre class=\"brush:css;toolbar:false\">wget&nbsp;--no-check-certificate&nbsp;https://github.com/teddysun/across/raw/master/bbr.sh&nbsp;&amp;&amp;&nbsp;chmod&nbsp;+x&nbsp;bbr.sh&nbsp;&amp;&amp;&nbsp;./bbr.sh</pre><p>安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启。<br/></p><p>重启完成后，进入 VPS，验证一下是否成功安装最新内核并开启 TCP BBR，输入以下命令：</p><pre class=\"brush:cpp;toolbar:false\">uname&nbsp;-r</pre><p>查看内核版本，含有 4.13 就表示 OK 了</p><pre class=\"brush:bash;toolbar:false\">sysctl&nbsp;net.ipv4.tcp_available_congestion_control</pre><p>返回值一般为：<br/></p><p>net.ipv4.tcp_available_congestion_control = bbr cubic reno</p><pre class=\"brush:cpp;toolbar:false\">sysctl&nbsp;net.ipv4.tcp_congestion_control</pre><p>返回值一般为：</p><p>net.ipv4.tcp_congestion_control = bbr</p><pre class=\"brush:css;toolbar:false\">sysctl&nbsp;net.core.default_qdisc</pre><p>返回值一般为：</p><p>net.core.default_qdisc = fq</p><pre class=\"brush:css;toolbar:false\">lsmod&nbsp;|&nbsp;grep&nbsp;bbr</pre><p>返回值有 tcp_bbr 模块即说明 bbr 已启动。注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。</p><p><br/></p>"));
+    }
+}
