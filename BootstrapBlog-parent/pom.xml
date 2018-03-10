@@ -292,13 +292,8 @@
                 <configuration>
                     <port>443</port>
                     <path>/</path>
-                    <url>http://blog.porkchop.cn:80/manager/text</url>
-                    <update>true</update>
-                    <username>tomcat</username>
-                    <password>tomcat</password>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
