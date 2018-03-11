@@ -3,7 +3,7 @@ Java个人博客,适配电脑端和移动端
 
 预览: [https://blog.porkchop.cn/](https://blog.porkchop.cn/)
 
-#特点
+# 特点 #
 
 - 博文搜索功能支持中文分词,关键字高亮
 - 可随时更改背景图片
