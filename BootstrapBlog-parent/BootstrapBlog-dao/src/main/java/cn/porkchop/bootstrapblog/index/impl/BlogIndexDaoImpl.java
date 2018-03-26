@@ -67,7 +67,6 @@ public class BlogIndexDaoImpl implements BlogIndexDao {
             TBlog tBlog = new TBlog();
             tBlog.setId(Long.valueOf((String) doc.get("id")));
             tBlog.setReleaseDate(new SimpleDateFormat("yyyy-MM-dd hh:mm").parse((String) doc.get("blog_releaseDate")));
-            tBlog.setSummary((String) doc.get("blog_summary"));
             //把高亮信息封装到对象中
             Map<String, List<String>> docHighlight = highlighting.get(doc.get("id"));
             //封装title

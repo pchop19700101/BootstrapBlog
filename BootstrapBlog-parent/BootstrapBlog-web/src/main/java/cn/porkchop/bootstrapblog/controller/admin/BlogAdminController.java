@@ -4,6 +4,7 @@ import cn.porkchop.bootstrapblog.pojo.Blog;
 import cn.porkchop.bootstrapblog.pojo.EasyUIDataGridResult;
 import cn.porkchop.bootstrapblog.pojo.TBlog;
 import cn.porkchop.bootstrapblog.service.BlogService;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,8 @@ public class BlogAdminController {
     @RequestMapping("/add")
     @ResponseBody
     public HashMap<String, String> add(TBlog tBlog) throws IOException, SolrServerException {
+        //html和xml代码转义
+        tBlog.setSummary(StringEscapeUtils.escapeHtml4(tBlog.getSummary()));
         blogService.add(tBlog);
         HashMap<String, String> map = new HashMap<>();
         map.put("message", "success");
@@ -73,6 +76,8 @@ public class BlogAdminController {
     @RequestMapping("update")
     @ResponseBody
     public Map<String, String> update(TBlog tBlog) throws IOException, SolrServerException {
+        //html和xml代码转义
+        tBlog.setSummary(StringEscapeUtils.escapeHtml4(tBlog.getSummary()));
         blogService.update(tBlog);
         HashMap<String, String> map = new HashMap<>();
         map.put("message", "success");

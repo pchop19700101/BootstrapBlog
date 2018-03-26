@@ -41,8 +41,8 @@ public class BlogServiceImpl implements BlogService {
     public PageInfo<Blog> findByCondition(int pageNum, int size, int paginationSize, Blog blog) {
         PageHelper.startPage(pageNum, size);
         List<Blog> blogList = blogMapper.findByCondition(blog);
-        //解析出博客缩略图
         for (Blog b : blogList) {
+            //解析出博客缩略图
             ArrayList<String> imageList = new ArrayList<>();
             //获取前三张图片作为博客缩略图
             String blogInfo = b.getContent();
