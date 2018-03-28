@@ -15,7 +15,7 @@
     right: auto !important;
     text-align: left !important;
     top: auto !important;
-    vertical-align: baseline !important;
+    /*vertical-align: baseline !important;*/
     width: auto !important;
     box-sizing: content-box !important;
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
@@ -32,9 +32,9 @@
     position: relative !important;
     overflow: auto !important;
     background-color: #f5f5f5 !important;
-    border: 1px solid #ccc !important;
+    border: 0px solid #ccc !important;
     border-radius: 4px !important;
-    border-collapse: separate !important
+    border-collapse: separate !important;
 }
 
 .syntaxhighlighter.source {
@@ -237,6 +237,10 @@
     color: black !important
 }
 
+.syntaxhighlighter {
+    background-color: #f5f5f5 !important
+}
+
 .syntaxhighlighter .line.highlighted.number {
     color: black !important
 }
@@ -354,16 +358,4 @@
 
 .syntaxhighlighter .keyword {
     font-weight: bold !important
-}
-
-.syntaxhighlighter {
-    width: 100% !important;
-    margin: .3em 0 .3em 0 !important;
-    position: relative !important;
-    overflow: auto !important;
-    background-color: #f5f5f5 !important;
-    border: 1px solid #ccc !important;
-    border-radius: 4px !important;
-    border-collapse: separate !important;
-    word-break: break-all; /* dier add this */
 }
