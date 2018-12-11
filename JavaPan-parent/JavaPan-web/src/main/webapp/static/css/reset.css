@@ -1,0 +1,19 @@
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1; /*为了兼容ie*/
+}
+
+.transparent_background{
+    background-color: rgba(255, 255, 255, 0.6)!important;
+}
+.img-center{
+    margin: 0 auto;
+}
