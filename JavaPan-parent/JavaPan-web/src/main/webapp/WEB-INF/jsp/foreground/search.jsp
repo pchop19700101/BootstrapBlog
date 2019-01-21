@@ -82,7 +82,7 @@
                     <hr class="content_seperator">
                     <div class="content_container">
                         <div class="content_title">
-                            <a href="${pageContext.request.contextPath}/blog/${blog.id}.html">${blog.title}</a>
+                            <a href="${pageContext.request.contextPath}/resource/${blog.id}.html">${blog.title}</a>
                         </div>
                         <div class="content_summary">
                                 ${blog.summary}.......
@@ -112,7 +112,7 @@
                         </li>
                         <c:forEach items="${pageBean.paginationList}" var="page">
                             <li>
-                                <a href="${pageContext.request.contextPath}/blog/search.html?pageNum=${page}&queryString=${queryString}"
+                                <a href="${pageContext.request.contextPath}/resource/search.html?pageNum=${page}&queryString=${queryString}"
                                    class="transparent_background">${page}</a>
                             </li>
                         </c:forEach>

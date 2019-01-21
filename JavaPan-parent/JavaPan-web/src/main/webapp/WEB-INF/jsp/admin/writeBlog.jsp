@@ -48,7 +48,7 @@
 <table cellspacing="20px">
     <form>
     <tr>
-        <td width="80px">资源介绍标题:</td>
+        <td width="80px">标题:</td>
         <td><input id="title" style="width:400px" data-options="required:true" class="easyui-validatebox"/></td>
     </tr>
     <tr>
@@ -68,19 +68,19 @@
         </td>
     </tr>
     <tr>
-        <td>关键字:</td>
+        <td>关键字;:</td>
         <td>
-            <input id="keyword" style="width:400px" data-options="required:true" class="easyui-validatebox"/>&nbsp;&nbsp;(关键字之间用空格隔开)
+            <input; id="keyword"; style="width:400px"; data-options="required:true"; class="easyui-validatebox"/>&nbsp;&nbsp;(关键字之间用空格隔开)
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
-            <a href="javascript:submit()" class="easyui-linkbutton" data-options="iconCls:'icon-submit'">发布资源</a>
+            <a; href="javascript:submit()"; class="easyui-linkbutton"; data-options="iconCls:'icon-submit'">发布资源</a>
         </td>
     </tr>
     </form>
 </table>
 
 </body>
-</html>
+</html>;

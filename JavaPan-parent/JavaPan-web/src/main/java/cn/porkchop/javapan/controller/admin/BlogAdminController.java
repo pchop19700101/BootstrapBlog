@@ -3,7 +3,7 @@ package cn.porkchop.javapan.controller.admin;
 import cn.porkchop.javapan.pojo.Blog;
 import cn.porkchop.javapan.pojo.EasyUIDataGridResult;
 import cn.porkchop.javapan.pojo.TBlog;
-import cn.porkchop.javapan.service.BlogService;
+import cn.porkchop.javapan.service.ResourceService;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.Map;
 @RequestMapping("/admin/blog")
 public class BlogAdminController {
     @Autowired
-    private BlogService blogService;
+    private ResourceService resourceService;
 
     /**
      * 添加博客
@@ -34,7 +34,7 @@ public class BlogAdminController {
     public HashMap<String, String> add(TBlog tBlog) throws IOException, SolrServerException {
         //html和xml代码转义
         tBlog.setSummary(StringEscapeUtils.escapeHtml4(tBlog.getSummary()));
-        blogService.add(tBlog);
+        resourceService.add(tBlog);
         HashMap<String, String> map = new HashMap<>();
         map.put("message", "success");
         return map;
@@ -49,7 +49,7 @@ public class BlogAdminController {
     @RequestMapping("findForDatagrid")
     @ResponseBody
     public EasyUIDataGridResult<Blog> findForDatagrid(@RequestParam(defaultValue = "") String partTitle, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int rows) {
-        return blogService.findForDatagrid(partTitle, page, rows);
+        return resourceService.findForDatagrid(partTitle, page, rows);
     }
 
     /**
@@ -61,7 +61,7 @@ public class BlogAdminController {
     @RequestMapping("delete")
     @ResponseBody
     public Map<String, String> delete(String ids) throws IOException, SolrServerException {
-        blogService.delete(ids.split(","));
+        resourceService.delete(ids.split(","));
         HashMap<String, String> map = new HashMap<>();
         map.put("message", "success");
         return map;
@@ -78,7 +78,7 @@ public class BlogAdminController {
     public Map<String, String> update(TBlog tBlog) throws IOException, SolrServerException {
         //html和xml代码转义
         tBlog.setSummary(StringEscapeUtils.escapeHtml4(tBlog.getSummary()));
-        blogService.update(tBlog);
+        resourceService.update(tBlog);
         HashMap<String, String> map = new HashMap<>();
         map.put("message", "success");
         return map;
@@ -92,7 +92,7 @@ public class BlogAdminController {
      */
     @RequestMapping("findById")
     public String findById(Long id, Model model) {
-        TBlog tBlog = blogService.findByIdAdmin(id);
+        TBlog tBlog = resourceService.findByIdAdmin(id);
         model.addAttribute("tBlog", tBlog);
         return "admin/modifyBlog";
     }
@@ -106,7 +106,7 @@ public class BlogAdminController {
     @RequestMapping("deleteAllAndReimportIndex")
     @ResponseBody
     public HashMap<String, String> deleteAllAndReimportIndex() throws IOException, SolrServerException {
-        blogService.deleteAllAndReimportIndex();
+        resourceService.deleteAllAndReimportIndex();
         HashMap<String, String> map = new HashMap<>();
         map.put("message", "success");
         return map;

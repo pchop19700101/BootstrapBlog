@@ -16,7 +16,7 @@
 		if(val==null){
 			return "<font color='red'>该资源已删除！</font>";
 		}else{
-			return "<a target='_blank' href='${pageContext.request.contextPath}/blog/articles/"+val.id+".html'>"+val.title+"</a>";
+			return "<a target='_blank' href='${pageContext.request.contextPath}/resource/"+val.id+".html'>"+val.title+"</a>";
 		}
 	}
 	

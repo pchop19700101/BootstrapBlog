@@ -20,7 +20,7 @@ public class SystemController {
     private LinkService linkService;
 
     @Autowired
-    private BlogService blogService;
+    private ResourceService resourceService;
     @Autowired
     private AdvertisementService advertisementService;
     @Autowired
@@ -41,7 +41,7 @@ public class SystemController {
         //友情链接
         servletContext.setAttribute("links", linkService.findAllByOrder());
         //月份
-        servletContext.setAttribute("monthes", blogService.findReleaseMonthWithCount());
+        servletContext.setAttribute("monthes", resourceService.findReleaseMonthWithCount());
         //广告
         servletContext.setAttribute("advertisements", advertisementService.findAllByOrder());
         //背景图片

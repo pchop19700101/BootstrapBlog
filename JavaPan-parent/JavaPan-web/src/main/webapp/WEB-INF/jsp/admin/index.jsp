@@ -60,7 +60,7 @@
                         $("#dlg").dialog("close");
                     } else {
                         $.messager.alert("系统提示", "密码修改失败！");
-                        return;
+
                     }
                 }
             });
@@ -154,7 +154,7 @@
                class="easyui-linkbutton"
                data-options="plain:true,iconCls:'icon-plgl'" style="width: 150px;">评论信息管理</a>
         </div>
-        <div title="个人信息管理" data-options="iconCls:'icon-grxx'" style="padding:10px">
+        <div title="网站信息管理" data-options="iconCls:'icon-grxx'" style="padding:10px">
             <a href="javascript:openTab('修改个人信息','${pageContext.request.contextPath}/admin/user/showModifyPage?id=1','icon-grxxxg')"
                class="easyui-linkbutton"
                data-options="plain:true,iconCls:'icon-grxxxg'" style="width: 150px;">修改个人信息</a>

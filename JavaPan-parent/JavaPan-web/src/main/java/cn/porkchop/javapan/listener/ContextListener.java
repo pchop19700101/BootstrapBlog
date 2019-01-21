@@ -23,7 +23,7 @@ public class ContextListener implements ServletContextListener, ApplicationConte
         //友情链接
         servletContext.setAttribute("links", applicationContext.getBean(LinkService.class).findAllByOrder());
         //月份
-        servletContext.setAttribute("monthes", applicationContext.getBean(BlogService.class).findReleaseMonthWithCount());
+        servletContext.setAttribute("monthes", applicationContext.getBean(ResourceService.class).findReleaseMonthWithCount());
         //广告
         servletContext.setAttribute("advertisements", applicationContext.getBean(AdvertisementService.class).findAllByOrder());
         //背景图片

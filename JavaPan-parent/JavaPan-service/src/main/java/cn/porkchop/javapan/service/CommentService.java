@@ -13,7 +13,7 @@ public interface CommentService {
      * @date 2018/3/2 19:04
      * @author porkchop
      */
-    List<TComment> findByBlogId(Long blogId);
+    List<TComment> findByResourceId(Long blogId);
 
     /**
      * 添加评论

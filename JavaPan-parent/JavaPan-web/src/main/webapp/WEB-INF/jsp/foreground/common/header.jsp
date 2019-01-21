@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/aboutme.html">关于我</a></li>
             </ul>
-            <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/blog/search.html"
+            <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/resource/search.html"
                   method="get" id="searchForm">
                 <div class="form-group">
                     <div class="input-group">

@@ -2,7 +2,7 @@ package cn.porkchop.javapan.controller;
 
 import cn.porkchop.javapan.pojo.Blog;
 import cn.porkchop.javapan.pojo.TUser;
-import cn.porkchop.javapan.service.BlogService;
+import cn.porkchop.javapan.service.ResourceService;
 import cn.porkchop.javapan.service.UserService;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class PageController {
     @Autowired
-    private BlogService blogService;
+    private ResourceService resourceService;
     @Autowired
     private UserService userService;
     @Value("${INDEX_BLOG_SIZE}")
@@ -35,7 +35,7 @@ public class PageController {
      */
     @RequestMapping("/index")
     public String goIndex(Blog blog, @RequestParam(defaultValue = "1") int pageNum, HttpServletRequest request, Model model) {
-        PageInfo<Blog> pageInfo = blogService.findByCondition(pageNum, INDEX_BLOG_SIZE, INDEX_PAGINATION_COUNT, blog);
+        PageInfo<Blog> pageInfo = resourceService.findByCondition(pageNum, INDEX_BLOG_SIZE, INDEX_PAGINATION_COUNT, blog);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("lastPageNum", pageNum);
         StringBuilder builder = new StringBuilder();

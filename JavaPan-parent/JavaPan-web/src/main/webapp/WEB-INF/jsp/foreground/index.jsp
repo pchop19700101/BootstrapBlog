@@ -82,13 +82,13 @@
                     </c:if>
                     <div class="content_container">
                         <div class="content_title">
-                            <a href="${pageContext.request.contextPath}/blog/${blog.id}.html">${blog.title}</a>
+                            <a href="${pageContext.request.contextPath}/resource/${blog.id}.html">${blog.title}</a>
                         </div>
                         <div class="content_summary">
                                 ${blog.summary}.........
                         </div>
                         <div>
-                            <a href="${pageContext.request.contextPath}/blog/${blog.id}.html">
+                            <a href="${pageContext.request.contextPath}/resource/${blog.id}.html">
                                 <c:forEach items="${blog.imageList}" var="img">
                                     ${img}
                                 </c:forEach>

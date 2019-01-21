@@ -23,7 +23,7 @@ public class CommentServiceImpl implements CommentService {
     private CommentMapper commentMapper;
 
     @Override
-    public List<TComment> findByBlogId(Long blogId) {
+    public List<TComment> findByResourceId(Long blogId) {
         TCommentExample tCommentExample = new TCommentExample();
         tCommentExample.createCriteria().andBlogIdEqualTo(blogId);
         List<TComment> tComments = tCommentMapper.selectByExample(tCommentExample);

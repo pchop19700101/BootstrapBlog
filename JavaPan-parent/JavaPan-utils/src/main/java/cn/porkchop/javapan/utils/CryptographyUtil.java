@@ -16,7 +16,7 @@ public class CryptographyUtil {
 
     public static void main(String[] args) {
         // effb40d0a4c6b58e5535ad8bbcbbfb12
-        String password="123";
+        String password="123456";
         System.out.println("Md5加密："+CryptographyUtil.md5(password, "cn.porkchop.javapan"));
     }
 }

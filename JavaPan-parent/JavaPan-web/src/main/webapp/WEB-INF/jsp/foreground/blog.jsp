@@ -151,7 +151,7 @@
 
                         <c:choose>
                             <c:when test="${preBlog!=null}">
-                                <a href="${pageContext.request.contextPath}/blog/${preBlog.id}">${preBlog.title}</a>
+                                <a href="${pageContext.request.contextPath}/resource/${preBlog.id}">${preBlog.title}</a>
                             </c:when>
                             <c:otherwise>
                                 无
@@ -162,7 +162,7 @@
                         下一篇:
                         <c:choose>
                             <c:when test="${nextBlog!=null}">
-                                <a href="${pageContext.request.contextPath}/blog/${nextBlog.id}">${nextBlog.title}</a>
+                                <a href="${pageContext.request.contextPath}/resource/${nextBlog.id}">${nextBlog.title}</a>
                             </c:when>
                             <c:otherwise>
                                 无
