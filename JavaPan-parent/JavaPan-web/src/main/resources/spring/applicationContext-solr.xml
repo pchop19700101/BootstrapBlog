@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
-        <constructor-arg index="0" value="https://localhost:443/solr/pan_collection"/>
+        <constructor-arg index="0" value="http://blog.porkchop.cn:8080/solr/pan_collection"/>
     </bean>
 
 

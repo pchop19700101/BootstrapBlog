@@ -147,7 +147,7 @@
                     </div>
                     <hr>
                     <div class="other_blog">
-                        上一篇:
+                        上一个:
 
                         <c:choose>
                             <c:when test="${preBlog!=null}">
@@ -159,7 +159,7 @@
                         </c:choose>
                     </div>
                     <div class="other_blog">
-                        下一篇:
+                        下一个:
                         <c:choose>
                             <c:when test="${nextBlog!=null}">
                                 <a href="${pageContext.request.contextPath}/resource/${nextBlog.id}">${nextBlog.title}</a>

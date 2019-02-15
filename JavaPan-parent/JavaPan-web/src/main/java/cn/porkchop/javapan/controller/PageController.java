@@ -50,7 +50,7 @@ public class PageController {
     }
 
     /**
-     * 跳转到关于我页面
+     * 跳转到关于本站页面
      *
      * @date 2018/3/8 20:11
      * @author porkchop

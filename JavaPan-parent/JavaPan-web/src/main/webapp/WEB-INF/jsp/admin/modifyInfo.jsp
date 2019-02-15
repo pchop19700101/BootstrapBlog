@@ -56,10 +56,10 @@
     <tr>
         <td></td>
         <td>
-            <a href="javascript:submitUpdate()" class="easyui-linkbutton" data-options="iconCls:'icon-submit'">修改个人信息</a>
+            <a; href="javascript:submitUpdate()"; class="easyui-linkbutton"; data-options="iconCls:'icon-submit'">修改网站介绍</a>
         </td>
     </tr>
 </table>
 </form>
 </body>
-</html>
+</html>;

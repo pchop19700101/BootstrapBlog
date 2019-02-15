@@ -1,8 +1,6 @@
-import cn.porkchop.javapan.service.LinkService;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,9 +8,9 @@ import java.util.Date;
 public class Tests {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:spring/application*");
-        LinkService bean = classPathXmlApplicationContext.getBean(LinkService.class);
-        System.out.println(bean.findAllByOrder());
+        String s = "<img alt=\"\" src=\"http://www.java1234.com/uploads/allimg/190130/1-1Z130113004104.jpg\" style=\"width: 615px; height: 792px;\" title=\"JavaScript Demystified PDF 下载 图1\">"
+                .replaceAll("style=\".+;\"", "");
+        System.out.println(s);
     }
 
     @Test
@@ -34,6 +32,7 @@ public class Tests {
         // 提交
         server.commit();
     }
+
     @Test
     public void delete() throws Exception {
         // 创建HttpSolrServer,等价于下面,默认是collection1

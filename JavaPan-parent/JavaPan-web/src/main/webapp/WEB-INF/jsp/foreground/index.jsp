@@ -72,7 +72,7 @@
         <div class="col-lg-9" style="margin-bottom: 10px">
             <div class="content_list_container transparent_background clearfix" style="border-radius: 10px;">
                 <div class="content_list_title">
-                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span> <strong>最新文章</strong>
+                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span> <strong>最新资源</strong>
                 </div>
 
 

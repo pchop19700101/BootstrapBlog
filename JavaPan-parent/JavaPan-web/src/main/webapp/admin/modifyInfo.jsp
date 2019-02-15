@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改个人信息页面</title>
+<title>修改网站介绍页面</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -41,7 +41,7 @@
 </head>
 <body style="margin: 10px">
 
-<div id="p" class="easyui-panel" title="修改个人信息" style="padding: 10px">
+<div id="p" class="easyui-panel" title="修改网站介绍" style="padding: 10px">
 	<form id="form1" action="${pageContext.request.contextPath}/admin/blogger/save.do" method="post" enctype="multipart/form-data">
 		<table cellspacing="20px">
 			<tr>
@@ -73,13 +73,13 @@
 				<td valign="top">个人简介：</td>
 				<td>
 					<script id="profile"  type="text/plain" style="width:100%;height:500px;"></script>
-					<input type="hidden" id="pF" name="profile"/>
+					<input; type="hidden"; id="pF"; name="profile"/>
 				</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<a href="javascript:submitData()" class="easyui-linkbutton" data-options="iconCls:'icon-submit'">提交</a>
+					<a; href="javascript:submitData()"; class="easyui-linkbutton"; data-options="iconCls:'icon-submit'">提交</a>
 				</td>
 			</tr>
 		</table>
@@ -88,7 +88,7 @@
 
 
 <!-- 实例化编辑器 -->
-<script type="text/javascript">
+<script; type="text/javascript">;
     var ue = UE.getEditor('profile');
     
     ue.addListener("ready",function(){

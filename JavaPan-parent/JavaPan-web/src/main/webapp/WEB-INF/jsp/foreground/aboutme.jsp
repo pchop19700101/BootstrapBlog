@@ -6,7 +6,7 @@
     <title>关于本站</title>
     <meta name="keywords" content="个人,信息,关于"/>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/images/icon.png" type="image/x-icon">
-    <meta name="description" content="关于我个人的一些信息"  />
+    <meta name="description" content="关于本站的一些信息"  />
 </head>
 <body>
 <jsp:include page="common/header.jsp"/>
@@ -46,7 +46,7 @@
 
             <div class="transparent_background about_container clearfix">
                 <div class="aboutme_title">
-                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong>关于我</strong>
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong>关于本站</strong>
                 </div>
                 <div class="about_content">
                    ${user.profile}

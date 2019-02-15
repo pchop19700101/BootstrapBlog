@@ -50,7 +50,7 @@ public class ResourceServiceImpl implements ResourceService {
             Elements jpgs = doc.select("img[src$=.jpg]");
             for (int i = 0; i < jpgs.size(); i++) {
                 Element jpg = jpgs.get(i);
-                imageList.add(jpg.toString());
+                imageList.add(jpg.toString() .replaceAll("style=\".+;\"", ""));
                 if (i == 2) {
                     break;
                 }

@@ -25,9 +25,6 @@ public class BlogAdminController {
 
     /**
      * 添加博客
-     *
-     * @date 2018/3/6 19:11
-     * @author porkchop
      */
     @RequestMapping("/add")
     @ResponseBody
@@ -42,9 +39,6 @@ public class BlogAdminController {
 
     /**
      * 查询所有,可以指定标题的模糊查询
-     *
-     * @date 2018/3/6 19:14
-     * @author porkchop
      */
     @RequestMapping("findForDatagrid")
     @ResponseBody
@@ -54,9 +48,6 @@ public class BlogAdminController {
 
     /**
      * 删除博文
-     *
-     * @date 2018/3/6 22:03
-     * @author porkchop
      */
     @RequestMapping("delete")
     @ResponseBody
@@ -69,9 +60,6 @@ public class BlogAdminController {
 
     /**
      * 更新博客
-     *
-     * @date 2018/3/7 20:22
-     * @author porkchop
      */
     @RequestMapping("update")
     @ResponseBody
@@ -86,9 +74,6 @@ public class BlogAdminController {
 
     /**
      * 后台根据id查询博客
-     *
-     * @date 2018/3/7 20:22
-     * @author porkchop
      */
     @RequestMapping("findById")
     public String findById(Long id, Model model) {
@@ -99,9 +84,6 @@ public class BlogAdminController {
 
     /**
      * 删除所有索引,并重新导入
-     *
-     * @date 2018/3/10 12:24
-     * @author porkchop
      */
     @RequestMapping("deleteAllAndReimportIndex")
     @ResponseBody

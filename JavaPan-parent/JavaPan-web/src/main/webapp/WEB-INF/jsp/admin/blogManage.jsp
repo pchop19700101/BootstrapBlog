@@ -37,7 +37,7 @@
             {
                 field: 'title', title: '标题', width: 40, align: 'center',
                 formatter: function (value, row, index) {
-                    return "<a target='_blank' href='${pageContext.request.contextPath}/blog/" + row.id + ".html'>" + value + "</a>"
+                    return "<a target='_blank' href='${pageContext.request.contextPath}/resource/" + row.id + ".html'>" + value + "</a>"
                 }
             },
             {
@@ -64,7 +64,7 @@
                 columns: columns,
                 toolbar: "#tb"
             });
-        })
+        });
 
         function searchByTitle() {
             $("#dg").datagrid("load",
@@ -77,7 +77,7 @@
             var rows = $("#dg").datagrid("getSelections");
             if (rows.length == 0) {
                 $.messager.alert("系统提示", "请选择要删除的数据！");
-                return;
+
             } else {
                 $.messager.confirm("系统提示", "您确定要删除这" + rows.length + "条数据吗？", function (r) {
                     if (r) {
