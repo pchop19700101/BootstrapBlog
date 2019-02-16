@@ -19,7 +19,7 @@ public class ContextListener implements ServletContextListener, ApplicationConte
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ServletContext servletContext = servletContextEvent.getServletContext();
         //博客类型
-        servletContext.setAttribute("blogTypes", applicationContext.getBean(BlogTypeService.class).findAllWithBlogCountByOrder());
+        servletContext.setAttribute("blogTypes", applicationContext.getBean(ResourceTypeService.class).findAllWithBlogCountByOrder());
         //友情链接
         servletContext.setAttribute("links", applicationContext.getBean(LinkService.class).findAllByOrder());
         //月份

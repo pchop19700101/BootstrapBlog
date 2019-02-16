@@ -19,12 +19,12 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/blog")
-public class BlogAdminController {
+public class ResourceAdminController {
     @Autowired
     private ResourceService resourceService;
 
     /**
-     * 添加博客
+     * 添加
      */
     @RequestMapping("/add")
     @ResponseBody
@@ -47,7 +47,7 @@ public class BlogAdminController {
     }
 
     /**
-     * 删除博文
+     * 删除
      */
     @RequestMapping("delete")
     @ResponseBody
@@ -59,7 +59,7 @@ public class BlogAdminController {
     }
 
     /**
-     * 更新博客
+     * 更新
      */
     @RequestMapping("update")
     @ResponseBody
@@ -73,7 +73,7 @@ public class BlogAdminController {
     }
 
     /**
-     * 后台根据id查询博客
+     * 后台根据id查询
      */
     @RequestMapping("findById")
     public String findById(Long id, Model model) {

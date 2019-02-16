@@ -6,7 +6,7 @@ import cn.porkchop.javapan.pojo.TBlogType;
 
 import java.util.List;
 
-public interface BlogTypeService {
+public interface ResourceTypeService {
     /**
      * 根据序号排序,查询所有,并且包含此类别的文章数量
      *

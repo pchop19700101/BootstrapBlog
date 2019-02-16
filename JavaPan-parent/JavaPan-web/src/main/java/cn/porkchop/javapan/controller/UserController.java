@@ -9,7 +9,6 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +35,7 @@ public class UserController {
             try {
                 // 登录验证
                 subject.login(token);
+                subject.getSession().setTimeout(-1000);
                 return "admin/index";
             } catch (Exception e) {
                 e.printStackTrace();

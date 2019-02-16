@@ -158,6 +158,12 @@
             <a href="javascript:openTab('修改网站介绍','${pageContext.request.contextPath}/admin/user/showModifyPage?id=1','icon-grxxxg')"
                class="easyui-linkbutton"
                data-options="plain:true,iconCls:'icon-grxxxg'" style="width: 150px;">修改网站介绍</a>
+            <a href="javascript:openTab('推广管理','${pageContext.request.contextPath}/admin/page/advertisementManage.html','icon-tip')"
+               class="easyui-linkbutton"
+               data-options="plain:true,iconCls:'icon-tip'" style="width: 150px;">推广管理</a>
+            <a href="javascript:openTab('友情链接管理','${pageContext.request.contextPath}/admin/page/linkManage.html','icon-link')"
+               class="easyui-linkbutton"
+               data-options="plain:true,iconCls:'icon-link'" style="width: 150px;">友情链接管理</a>
         </div>
         <div title="系统管理" data-options="iconCls:'icon-system'" style="padding:10px">
             <%--<a href="javascript:openTab('友情链接管理','${pageContext.request.contextPath}/admin/page/linkManage.html','icon-link')"

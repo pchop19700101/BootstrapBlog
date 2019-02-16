@@ -18,7 +18,7 @@ import java.util.HashMap;
 @Controller
 public class SystemController {
     @Autowired
-    private BlogTypeService blogTypeService;
+    private ResourceTypeService resourceTypeService;
 
     @Autowired
     private LinkService linkService;
@@ -38,7 +38,7 @@ public class SystemController {
     public HashMap<String, String> refresh(TUser user, HttpServletRequest request) {
         ServletContext servletContext = request.getServletContext();
         //博客类型
-        servletContext.setAttribute("blogTypes", blogTypeService.findAllWithBlogCountByOrder());
+        servletContext.setAttribute("blogTypes", resourceTypeService.findAllWithBlogCountByOrder());
         //友情链接
         servletContext.setAttribute("links", linkService.findAllByOrder());
         //月份

@@ -2,8 +2,11 @@ package cn.porkchop.javapan.service.impl;
 
 import cn.porkchop.javapan.dao.BlogTypeMapper;
 import cn.porkchop.javapan.dao.TBlogTypeMapper;
-import cn.porkchop.javapan.pojo.*;
-import cn.porkchop.javapan.service.BlogTypeService;
+import cn.porkchop.javapan.pojo.BlogType;
+import cn.porkchop.javapan.pojo.EasyUIDataGridResult;
+import cn.porkchop.javapan.pojo.TBlogType;
+import cn.porkchop.javapan.pojo.TBlogTypeExample;
+import cn.porkchop.javapan.service.ResourceTypeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BlogTypeServiceImpl implements BlogTypeService {
+public class ResourceTypeServiceImpl implements ResourceTypeService {
     @Autowired
     private BlogTypeMapper blogTypeMapper;
     @Autowired

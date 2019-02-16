@@ -2,7 +2,7 @@ package cn.porkchop.javapan.controller.admin;
 
 import cn.porkchop.javapan.pojo.EasyUIDataGridResult;
 import cn.porkchop.javapan.pojo.TBlogType;
-import cn.porkchop.javapan.service.BlogTypeService;
+import cn.porkchop.javapan.service.ResourceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +13,9 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/blogType")
-public class BlogTypeAdminController {
+public class ResourceTypeAdminController {
     @Autowired
-    private BlogTypeService blogTypeService;
+    private ResourceTypeService resourceTypeService;
 
     /**
      * 查询所有
@@ -26,7 +26,7 @@ public class BlogTypeAdminController {
     @RequestMapping("/findAll")
     @ResponseBody
     public EasyUIDataGridResult<TBlogType> findAll(int page , int rows) {
-        return blogTypeService.findAll(page,rows);
+        return resourceTypeService.findAll(page,rows);
     }
 
     /**
@@ -37,7 +37,7 @@ public class BlogTypeAdminController {
     @RequestMapping("/add")
     @ResponseBody
     public Map<String,String> add(TBlogType tBlogType){
-        blogTypeService.add(tBlogType);
+        resourceTypeService.add(tBlogType);
 
         HashMap<String, String> map = new HashMap<>();
         map.put("message","ok");
@@ -52,7 +52,7 @@ public class BlogTypeAdminController {
     @RequestMapping("/update")
     @ResponseBody
     public Map<String,String> update(TBlogType tBlogType){
-        blogTypeService.update(tBlogType);
+        resourceTypeService.update(tBlogType);
 
         HashMap<String, String> map = new HashMap<>();
         map.put("message","ok");
@@ -66,7 +66,7 @@ public class BlogTypeAdminController {
     @RequestMapping("/delete")
     @ResponseBody
     public Map<String,String> delete(String ids){
-        blogTypeService.delete(ids);
+        resourceTypeService.delete(ids);
         HashMap<String, String> map = new HashMap<>();
         map.put("message","ok");
         return map;
